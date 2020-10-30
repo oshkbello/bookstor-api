@@ -1,1 +1,1 @@
-# bookstor-api
+#payment_sub.api
