@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\SocialAccount;
 use Socialite;
 use App\User;
+use Auth;
 
 class SocialAccountController extends Controller
 {
@@ -38,18 +39,19 @@ class SocialAccountController extends Controller
         return redirect('/home');
     }
 
-    public function findOrCreateUser($socailUser, $provider)
+    public function findOrCreateUser($socialUser, $provider)
     {
         //find existing account by social provider
         $account = SocialAccount::where('provider_name', $provider)
-            ->where('provider_id', $socailUser->getId()->first());
+            ->where('provider_id', $socialUser->getId())->first();
         
         if ($account) {
             return $account->user;
-        } else {
+        }else 
+        {
 
             //find existing account by email
-            $user = user::where('email', $socailUser->getEmail())->first();
+            $user = user::where('email', $socialUser->getEmail())->first();
 
             //if no user, create new db user entry
             if (! $user) {
@@ -59,7 +61,7 @@ class SocialAccountController extends Controller
                 ]);
             }
 
-            //Add provider record to the user
+            //create new social provider record for the user
             $user->accounts()->create([
                 'provider_name' => $provider,
                 'provider_id' => $socialUser->getId()
