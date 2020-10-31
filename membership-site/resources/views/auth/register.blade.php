@@ -76,7 +76,7 @@
                         Sign Up with Facebook
                     </a>
 
-                    <a href="{{ url('login/twitter') }}" class="btn btn-social btn-twitter">
+                    <a href="{{ url('') }}" class="btn btn-social btn-twitter">
                         <i class="fa fa-twitter"></i>
                         Sign Up with Twitter
                     </a>

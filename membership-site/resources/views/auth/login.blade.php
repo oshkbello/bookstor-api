@@ -71,6 +71,10 @@
                         <i class="fa fa-facebook"></i>
                         Login with Facebook
                     </a>
+                    <a href="{{ url('') }}" class="btn btn-social btn-twitter">
+                        <i class="fa fa-twitter"></i>
+                        Login with Twitter
+                    </a>
                 </div>
             </div>
         </div>
