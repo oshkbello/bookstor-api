@@ -10,7 +10,7 @@ class PostController extends Controller
 {
     public function __construct()
     {
-      $this->middleware('auth', ['except' => ['show', 'search']]);
+      $this->middleware('auth', ['except' => ['show', 'search', 'searchjs']]);
     }
 
     public function search(Request $request)
@@ -23,6 +23,11 @@ class PostController extends Controller
       }
 
       return view('posts.search')->with('results', $results);
+    }
+
+    public function searchjs()
+    {
+      return view('posts.searchjs');
     }
 
     /**
