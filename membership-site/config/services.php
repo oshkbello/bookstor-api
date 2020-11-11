@@ -34,6 +34,12 @@ return [
         'client_id' => env('FACEBOOK_ID'),
         'client_secret' => env('FACEBOOK_SECRET'),
         'redirect' => env('FACEBOOK_REDIRECT')
-    ]
+    ],
+
+    'stripe' => [
+        'model'=> App\User::class,
+        'key' => env('STRIPE_KEY'),
+        'secret'=> env('STRIPE_SECRET')
+    ],
 
 ];
